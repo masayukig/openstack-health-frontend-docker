@@ -7,6 +7,7 @@ RUN zypper install -y \
     nodejs6 \
     npm6 \
     git \
+    gcc-c++ \
   && pip install virtualenv \
   && rm -rf /var/cache/apk/*
 RUN zypper install -y -t pattern devel_basis
@@ -25,5 +26,6 @@ RUN /usr/local/bin/gulp prod
 
 EXPOSE 8080
 WORKDIR /app/openstack-health/build
+RUN cp ../etc/config.json ./
 # FIXME: run nginx or something for build directory
 CMD ["python", "-m", "SimpleHTTPServer", "8080"]
