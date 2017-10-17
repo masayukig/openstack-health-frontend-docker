@@ -14,8 +14,9 @@ RUN zypper install -y -t pattern devel_basis
 RUN npm -g install gulp
 
 WORKDIR /app
-RUN git clone https://github.com/openstack/openstack-health
+RUN git clone https://git.openstack.org/openstack/openstack-health
 WORKDIR /app/openstack-health
+RUN git pull https://git.openstack.org/openstack/openstack-health refs/changes/43/483843/2
 RUN npm install
 RUN /usr/local/bin/gulp prod
 
