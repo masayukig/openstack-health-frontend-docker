@@ -1,15 +1,14 @@
 # for Frontend
-FROM opensuse:tumbleweed
+FROM opensuse:latest
 
 RUN zypper install -y \
     python \
-    python2-pip \
+    python-pip \
     nodejs6 \
     npm6 \
     git \
     gcc-c++ \
-  && pip install virtualenv \
-  && rm -rf /var/cache/apk/*
+  && pip install virtualenv
 RUN zypper install -y -t pattern devel_basis
 
 RUN npm -g install gulp
@@ -17,6 +16,8 @@ RUN npm -g install gulp
 WORKDIR /app
 RUN git clone https://git.openstack.org/openstack/openstack-health
 WORKDIR /app/openstack-health
+RUN git config --global user.email "masayuki.igawa@gmail.com"
+RUN git config --global user.name "Masayuki Igawa"
 RUN git pull https://git.openstack.org/openstack/openstack-health refs/changes/43/483843/2
 RUN npm install
 RUN /usr/local/bin/gulp prod
