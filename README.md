@@ -1,1 +1,0 @@
-# openstack-health-frontend-docker
