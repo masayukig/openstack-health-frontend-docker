@@ -22,7 +22,7 @@ WORKDIR /app/openstack-health
 # https://review.openstack.org/#/c/483843
 RUN git config --global user.email "masayuki.igawa@gmail.com"
 RUN git config --global user.name "Masayuki Igawa"
-RUN git pull https://git.openstack.org/openstack/openstack-health refs/changes/43/483843/2
+RUN git pull https://git.openstack.org/openstack/openstack-health refs/changes/43/483843/6
 
 RUN npm install
 RUN /usr/local/bin/gulp prod
