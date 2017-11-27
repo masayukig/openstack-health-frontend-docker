@@ -17,13 +17,6 @@ WORKDIR /app
 RUN git clone https://git.openstack.org/openstack/openstack-health
 WORKDIR /app/openstack-health
 
-# This is just a workaround to run in a local environment. If you'd like to
-# know more details, you can see the patch.
-# https://review.openstack.org/#/c/483843
-RUN git config --global user.email "masayuki.igawa@gmail.com"
-RUN git config --global user.name "Masayuki Igawa"
-RUN git pull https://git.openstack.org/openstack/openstack-health refs/changes/43/483843/6
-
 RUN npm install
 RUN /usr/local/bin/gulp prod
 
