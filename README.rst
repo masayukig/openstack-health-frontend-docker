@@ -3,7 +3,7 @@ openstack-health-frontend-docker
 
 .. image::
     https://img.shields.io/docker/build/masayukig/openstack-health-frontend.svg
-    :target: https://hub.docker.com/r/masayukig/openstack-health-frontend/
+    :target: https://hub.docker.com/r/masayukig/openstack-health-frontend/builds/
 .. image::
     https://img.shields.io/docker/automated/masayukig/openstack-health-frontend.svg
     :target: https://hub.docker.com/r/masayukig/openstack-health-frontend/
