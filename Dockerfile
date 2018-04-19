@@ -25,6 +25,7 @@ RUN /usr/local/bin/gulp prod
 
 EXPOSE 8080
 WORKDIR /app/openstack-health/build
-RUN cp ../etc/config.json ./
+COPY ./etc/config.json ./
+
 # FIXME: run nginx or something for build directory
 CMD ["python", "-m", "SimpleHTTPServer", "8080"]
