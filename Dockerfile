@@ -8,6 +8,7 @@ RUN zypper install -y \
     npm6 \
     git \
     gcc-c++ \
+    nginx \
   && pip install virtualenv
 RUN zypper install -y -t pattern devel_basis
 
@@ -26,6 +27,8 @@ RUN /usr/local/bin/gulp prod
 EXPOSE 8080
 WORKDIR /app/openstack-health/build
 COPY ./etc/config.json ./
+RUN cp -r . /srv/www/htdocs/
 
-# FIXME: run nginx or something for build directory
-CMD ["python", "-m", "SimpleHTTPServer", "8080"]
+RUN ln -sf /dev/stdout /var/log/nginx/access.log && ln -sf /dev/stderr /var/log/nginx/error.log
+
+CMD ["nginx", "-g", "daemon off;"]
