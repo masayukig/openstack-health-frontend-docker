@@ -1,5 +1,5 @@
 # for Frontend
-FROM opensuse:latest
+FROM opensuse:leap
 
 RUN zypper install -y \
     python \
